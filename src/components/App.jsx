@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Modal } from './Modal/Modal';
 import { Loader } from './Loader/Loader';
 import { Button } from './Button/Button';
 import { fetchData } from 'services/api';
-
-// axios.defaults.baseURL = 'https://pixabay.com/api/';
-// const KEY = `37527059-e422356509d98ede2a3340a26`;
-// const PER_PAGE = 12;
-// const Q_SETTINGS = `&key=${KEY}&image_type=photo&orientation=horizontal&per_page=${PER_PAGE}`;
 
 export class App extends Component {
   constructor() {
@@ -21,7 +15,7 @@ export class App extends Component {
       modalIndex: '-1',
       loading: false,
       loadingMore: false,
-      query: 'landscape blues',
+      query: 'Pokemon Charizard',
       page: 0,
       scroll: 0,
     };
@@ -46,9 +40,6 @@ export class App extends Component {
       this.state.page !== prevState.page ||
       this.state.query !== prevState.query
     ) {
-      // await this.setState(prev => {
-      //   return { loadingMore: true, page: 1 + Number(prev.page) };
-      // });
       try {
         this.fetchGallery();
       } finally {
